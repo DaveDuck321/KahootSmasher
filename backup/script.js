@@ -1,11 +1,11 @@
 var verficationCode = "";
-var numberOfKahoots =50;
+var numberOfKahoots =100;
 
 var alreadyStarted = false;
 
 var namingMethod = 0;
-var namingMethods = ["Random name","Random Ending","Random Caps"];
-var namesExample= ["Ben Dover","Eileen Dover","Not in ur class","Stephanie","Sportacus","Robbie Rotten","Ziggy","L0kesh;)","RealPerson.mp4","ur search history","Cael Cooper:)","Kim-Jong Uno","Sernie Banders","lorcan't","Not A Bot","setup.exe","admin1"];
+var namingMethods = ["Random name","Base Name","Random Caps"];
+var namesExample= ["Ben Dover","Eileen Dover","Not in ur class","Stephanie","Sportacus","Robbie Rotten","Ziggy","L0kesh;)","RealPerson.mp4","ur search history","Cael Cooper:)","Kim-Jong Uno","Sernie Banders","lorcant","Not A Bot","setup.exe","admin1","Mack attack","mr moo moo man","boris","abdothepedo","pacothetaco","orman","herobine","chuck joris","nerd3","watergaminghd","marijona","DeathtoKahoot","whoami", "game_over", "mrteacherman", "crispylips", "dragon-rider", "nsa", "cerialkiller", "pixiedust", "ramenlover", "unclejerry", "dwight", "ICAPERATS", "supremecoat", "mostwanted", "moneymoves", "bet", "foxfire", "mathz", "sponsored"];
 
 var addMoreButton= document.createElement("input");
 addMoreButton.type = "button";
@@ -30,9 +30,9 @@ $("#GamePin").keyup(function (e) {
 
  function numberChanging()
  {
-    if(Number($("#numberOfKahoots").val())>240)
+    if(Number($("#numberOfKahoots").val())>900)
     {
-        $("#numberOfKahoots").val(240);
+        $("#numberOfKahoots").val(900);
     }
  }
  
@@ -61,7 +61,7 @@ function onLoadTestIfSmashing()
             alreadyStarted = true;
             var newHTML = "<h1 style='background-color:#864cbf;margin-top:0;width:111%;margin-left:-5.5%;padding:10px;'>Kahoot smashing in progress...</h1><h2 id='joined'>Smashers joined: 12/50</h2><h2 id='verifiedH2' style='display:none;'>Smashers verified: 0/50</h2><h2 id='answered'>Smashers answered: 12/50</h2><div style='width:300px;margin: 0 auto;'><div style='width:200px;'><img src='images/blueAnswer.png' width=100 style='margin:20px'><p id='blueAnswers' style='text-align:left;margin-top:-100px;font-size:50px;margin-left:125px'>10/50</p></div><div style='width:200px;'><img src='images/greenAnswer.png' width=100 style='margin:20px'><p id='greenAnswers' style='text-align:left;margin-top:-100px;font-size:50px;margin-left:125px'>10/50</p></div><div style='width:200px;'><img src='images/redAnswer.png' width=100 style='margin:20px'><p id='redAnswers' style='text-align:left;margin-top:-100px;font-size:50px;margin-left:125px'>10/50</p></div><div style='width:200px;'><img src='images/yellowAnswer.png' width=100 style='margin:20px'><p id='yellowAnswers' style='text-align:left;margin-top:-100px;font-size:50px;margin-left:125px'>10/50</p></div></div>";
         $("#body").html(newHTML);
-    
+    $("#androidApp").css("display","none");
         document.body.appendChild(addMoreButton);
         }
     });
@@ -87,12 +87,12 @@ function generateName(mode)
             name = randomCaps(namesExample[Math.floor(Math.random()*namesExample.length)]);
             break;
         case 1:
-            name = ($("#base").val().substr(0,11) +"." +generateRandomLetter(5)).substr(0,16);
+            name = ($("#base").val().substr(0,11));
             break;
         case 2:
             if($("#base").val().length<7)
             {
-                name = randomCaps($("#base").val()) + "." +generateRandomLetter(4);
+                name = randomCaps($("#base").val());
                 break;
             }
             else
@@ -123,13 +123,13 @@ function hideExtension()
 
 function addMoreKahoots()
 {
-    if(numberOfKahoots>=240)
+    if(numberOfKahoots>900)
     {
         document.body.removeChild(verifyButton);
         return;
     }
     else{
-        numberOfKahoots=Math.min(numberOfKahoots+10,240);
+        numberOfKahoots=Math.min(numberOfKahoots+10,1000);
         //$("#asdfghjklqwertyuio").attr("newRequests",10);
         chrome.runtime.sendMessage({type:'addMore', totalNumber:numberOfKahoots},function(response){});
     }
@@ -159,20 +159,17 @@ function hideSettings(shouldSave)
 function GetSettingsFromFile(items)
 {
     item = items.settingsData;
-    if(item==undefined || item.number==undefined)
+    if(item.number==undefined)
     {
-      console.log("no save data");
-      console.log("Making save data");
-      hideSettings(true);
-      console.log("Done")
-   	return;
-   }
-   numberOfKahoots = parseInt(item.number);
-   $("#numberOfKahoots").val(numberOfKahoots);
-   $("#base").val(item.base);
-   namingMethod = parseInt(item.method);
-   $("#namingMethod").attr('value',namingMethods[namingMethod]);
-   $("#answerDelay").val(parseInt(item.delay));
+        console.log("no save data");
+        return;
+    }
+    numberOfKahoots = parseInt(item.number);
+    $("#numberOfKahoots").val(numberOfKahoots);
+    $("#base").val(item.base);
+    namingMethod = parseInt(item.method);
+    $("#namingMethod").attr('value',namingMethods[namingMethod]);
+    $("#answerDelay").val(parseInt(item.delay));
 }
 
 function showAbout()
@@ -205,7 +202,6 @@ function changeNaming()
     updateName();
 }
 
-
 function buttonClicked()
 {
     gameID = $("#GamePin").val();
@@ -228,32 +224,30 @@ function buttonClicked()
     
     var newHTML = "<h1 style='background-color:#864cbf;margin-top:0;width:111%;margin-left:-5.5%;padding:10px;'>Kahoot smashing in progress...</h1><h2 id='joined'>Smashers joined: 12/50</h2><h2 id='verifiedH2' style='display:none;'>Smashers verified: 0/50</h2><h2 id='answered'>Smashers answered: 12/50</h2><div style='width:300px;margin: 0 auto;'><div style='width:200px;'><img src='images/blueAnswer.png' width=100 style='margin:20px'><p id='blueAnswers' style='text-align:left;margin-top:-100px;font-size:50px;margin-left:125px'>10/50</p></div><div style='width:200px;'><img src='images/greenAnswer.png' width=100 style='margin:20px'><p id='greenAnswers' style='text-align:left;margin-top:-100px;font-size:50px;margin-left:125px'>10/50</p></div><div style='width:200px;'><img src='images/redAnswer.png' width=100 style='margin:20px'><p id='redAnswers' style='text-align:left;margin-top:-100px;font-size:50px;margin-left:125px'>10/50</p></div><div style='width:200px;'><img src='images/yellowAnswer.png' width=100 style='margin:20px'><p id='yellowAnswers' style='text-align:left;margin-top:-100px;font-size:50px;margin-left:125px'>10/50</p></div></div>";
     $("#body").html(newHTML);
-    $("#androidApp").css("display","none");
     
     document.body.appendChild(verifyButton);
     $("#verifyButton").hide();
+    $("#androidApp").css("display","none");
     document.body.appendChild(addMoreButton);
     
     
 }
-$(document).ready(function(){
-	onLoadTestIfSmashing();	
-	$("#popupBackOnclick").click(function(){$('#2step').slideUp(100)});
-	$("#hideSettingsButton").click(function(){hideSettings(true)});
-	$("#hideAboutBtn").click( hideAbout);
-	$("#settingsGear").click(showSettings);
-	$("#aboutGear").click(showAbout);
-	$("#smash").click(buttonClicked);
-	$("#EnterButton").click(buttonClicked);
-	$("#hideSettings2").click(function(){hideSettings(false)});
-	$("#namingMethod").click(changeNaming);
-	$("#popupBack1").click(hideAbout);
-	$("#xSettings").click(function(){hideSettings(false)});
-   $("#androidApp").slideDown(700);
-       
-   updateName();
-   $('#GamePin').on('keyup', function (e) {
-    	if (e.keyCode == 13) {buttonClicked();}
+$(document).ready(function(){onLoadTestIfSmashing();
+$("#popupBackOnclick").click(function(){$('#2step').slideUp(100)});
+$("#hideSettingsButton").click(function(){hideSettings(true)});
+$("#hideAboutBtn").click( hideAbout);
+$("#settingsGear").click(showSettings);
+$("#aboutGear").click(showAbout);
+$("#smash").click(buttonClicked);
+$("#EnterButton").click(buttonClicked);
+$("#hideSettings2").click(function(){hideSettings(false)});
+$("#namingMethod").click(changeNaming);
+$("#popupBack1").click(hideAbout);
+$("#xSettings").click(function(){hideSettings(false)});
+    $("#androidApp").slideDown(700);
+    updateName();
+    $('#GamePin').on('keyup', function (e) {
+    if (e.keyCode == 13) {buttonClicked();}
     });
     
     chrome.storage.local.get("settingsData", function(items){GetSettingsFromFile(items)})

@@ -1,0 +1,34 @@
+Kahoot Smasher Complete Control!
+
+Kahoot Smasher is a extension desgined to "smash" kahoots. It joins the kahoot with lots of bots. 
+Their are several different naming options, the bots can answer the questions, 
+and you can stop smashing whenever you like! 
+
+
+This is a spin-off of the Kahoot Smasher Beta Extension:
+https://chrome.google.com/webstore/detail/kahoot-smasher-beta/jegbdfehmmeclcliadfdjbbpmhcjgclk
+
+V.1.5
+New Features:
+-Lots more names for "random names" naming option
+-Complete Control over Naming Options
+-Changes to the CSS (styling of smasher page)
+-Minor UI changes (text)
+
+Much more to come!
+
+Huge thanks to Dave Duck!
+This is based of off his code
+Check him out:
+Github: https://github.com/DaveDuck321/KahootSmasher-NodeJS
+Orginial Extension: https://chrome.google.com/webstore/detail/kahoot-smasher-beta/jegbdfehmmeclcliadfdjbbpmhcjgclk
+
+If you have any suggestions please post them. I will do my best to add as many as possible.
+
+Disclaimers:
+
+*This extension is not owned or endorsed by Kahoot*
+
+*I'm not responsible for what you do with the extension, use at your own risk.*
+
+**Don't be an idiot**
