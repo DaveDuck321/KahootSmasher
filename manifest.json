@@ -19,9 +19,9 @@
       "128": "icon128.png"
    },
    "manifest_version": 2,
-   "name": "Kahoot Smasher Complete Control",
+   "name": "Kahoot Smasher Beta",
    "permissions": [ "webRequestBlocking", "webRequest", "storage", "cookies", "*://kahoot.it/*" ],
-   "short_name": "SmashIt!",
+   "short_name": "SmashIt2!",
    "version": "0.6",
    "web_accessible_resources": [ "smasherBot.js" ]
 }
