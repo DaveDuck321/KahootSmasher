@@ -13,8 +13,8 @@
     <link rel="icon" href="favicon.png">
     <meta charset="UTF-8">
     <meta name=viewport content="width=device-width, initial-scale=1">
-    <meta name="description" content="This service joins a Kahoot (of the game pin you specify) up to 255 times with randomized names and begins to randomly answer the questions attempting to get on the leader board.">
-    <meta name="keywords" content="Kahoot,Smasher,Bot,Competition">
+    <meta name="description" content="Kahoot smasher will play any kahoot, joining it hundreds of times with random names and starting to answer the questions randomly">
+    <meta name="keywords" content="Kahoot,Smasher,Bot,Smash,Kahoot.it,Memes,Funny">
     <link rel="stylesheet" href="style.css">
     <script src="/jquery.js"></script>
     </head>
@@ -26,8 +26,7 @@
                     <h1 class="header">Settings</h1>
                     <a id ="xSettings" style="position:relative;display:block;bottom:60px;left:97%;font-size:20px;color:black;text-decoration:none;" href = "#" >X</a>
                     <h2 style="margin-top:-20px;">Number of Kahoots</h2>
-                    <input id="numberOfKahoots" type=number value=50 style="margin-left:35%;width:30%;" onchange="numberChanging()">
-                    
+                    <input id="numberOfKahooters (number of bots)" type=number value=50 style="margin-left:35%;width:30%;" onchange="numberChanging()">
                     <h2>Max answer delay (ms)</h2>
                     <input id="answerDelay" type=number value="500" style="margin-left:35%;width:30%;">
                     <h2>Naming method</h2>
@@ -42,25 +41,28 @@
             
             <div id="info" class="popup">
             <div id ="popupBack1" class= "popupBack"></div>
-                <div id = "" class="popupMain">
+                <div class="popupMain">
                     <h1 class="header">About</h1>
-                    <p>Even play kahoot with no freinds - finally an extension that will allow you to sit at home all day with you computer and your trusty kahoots (endless fun)! Who needs hobbies when you can listen to those catchy tunes!</p>
-                    <p>This service joins a Kahoot (of the game pin you specify) as many times as possible with randomized names and begins to randomly answer the questions attempting to get on the leader board.</p>
-                    <h2>Special Thanks</h2>
+                    <p>Do you hate having to do kahoots? Well you're in luck!</p>
+                    <p>Kahoot smasher is a service/extension that joins a kahoot multiple times with bots in order to improve the experience of the game.</p>
+                    <p>Its free to use and it's safe!</p>
+                    <h2>Huge Thanks</h2>
                     <p>Guido Francis - Worked on styling and improving visuals<p>
                     <p style="text-align:center">Twitter: <a href="https://twitter.com/GuidoAFrancis">@GuidoAFrancis</a></p>
                     <p style="text-align:center">Instagram: <a href= "https://www.instagram.com/guidoafrancis/">@guidoafrancis</a></p>
                     <button id = "hideAboutBtn" class="styledButton" style="width:36%;margin-left:32%;cursor:pointer;">Done</button>
                 </div>
+                
             </div>
+            
             <img id ="settingsGear" src = "gear.png" width = 64 height=64 alt = "Settings"style="cursor:pointer;">
             <img src = "info.png" width = 64 height=64 id="aboutGear" alt = "Smashr.tk" style="position:absolute;right:0%;cursor:pointer;">
-            <a id="smash" href="#">Smash It!</span></a>
+            <a id="smash" href="#">Smash It!<span id="smallBeta"> BETA</span></a>
             <div id = "mainpageID">
                 <input class="mainpage" id ="GamePin" type="text" placeholder="Game PIN">
                 <input class="mainpage" id ="EnterButton" type="button" value="Enter" style='cursor:pointer;'></div>
         </div>
     </body>
     <script src="/backup/script.js"></script>
-    <iframe id="androidApp" src="https://kahoot-smash.tk/iframeStable.html" scrolling="no"></iframe>
+    <iframe id="androidApp" src="https://kahoot-smash.tk/iframe.html" scrolling="no"></iframe>
 </html>

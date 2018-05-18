@@ -15,7 +15,7 @@ $( "body" ).append("<span id='smashingInfo' botsJoined = 0 redAnswers = 0 greenA
 var smashingInfoObject = $('#smashingInfo');
 
 //Name generator
-var namesExample = ["Ben Dover","Eileen Dover","Not in ur class","Stephanie","Sportacus","Robbie Rotten","Ziggy","L0kesh;)","RealPerson.mp4","ur search history","Cael Cooper:)","Kim-Jong Uno","Sernie Banders","lorcant","Not A Bot","setup.exe","admin1","Mack attack","mr moo moo man","boris",,"pacothetaco","orman","herobine","chuck joris","nerd3","watergaminghd","marijona","SmashKahoot","Kahoot smasher"];
+var namesExample = ["Ben Dover","Eileen Dover","Not in ur class","Stephanie","Sportacus","Robbie Rotten","Ziggy","L0kesh;)","RealPerson.mp4","ur search history","Cael Cooper:)","Kim-Jong Uno","Sernie Banders","lorcant","Not A Bot","setup.exe","admin1","Mack attack","mr moo moo man","boris","abdothepedo","pacothetaco","orman","herobine","chuck joris","nerd3","watergaminghd","marijona","DeathtoKahoot","whoami", "game_over", "mrteacherman", "crispylips", "dragon-rider", "nsa", "cerialkiller", "pixiedust", "ramenlover", "unclejerry", "dwight", "ICAPERATS", "supremecoat", "mostwanted", "moneymoves", "bet", "foxfire", "mathz", "sponsored"];
 function randomCaps(baseName) {
     var newName = "";
     for (var i = 0; i < baseName.length; i++) {

@@ -17,8 +17,6 @@ var addedFirstBot = false;
 
 var SmashingStatus = {started:false, redAnswers:0,greenAnswers:0,yellowAnswers:0,blueAnswers:0, botsJoined:0, joined:0};
 
-var timeout =0;
-
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
 {
@@ -63,7 +61,16 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
     
     if(request.type == "stopSmashing")
     {
-        stopSmashing();
+        SmashingStatus = {started:false, redAnswers:0,greenAnswers:0,yellowAnswers:0,blueAnswers:0, botsJoined:0,joined:0};
+        stopSmash = true;
+        addedFirstBot= false;
+        toDecode ="";
+        xKahootToken ="";
+        currentKahootId = 0;
+        AddedTotal=0;
+        answerDelay=0;
+        leftToAdd = 0;
+        setTimeout(function(){$("#kahoot-stuff").remove()},5000);
     }
     
     if(request.type == "RequestAction")
@@ -109,44 +116,24 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
     }
     if(request.type =="progress")
     {
-        if(SmashingStatus.started)
-        {
-            clearTimeout(timeout);
-            timeout = setTimeout(stopSmashing,5000);
-        }
-        
         sendResponse(SmashingStatus);
     }
 });
 
-function stopSmashing()
-{
-        SmashingStatus = {started:false, redAnswers:0,greenAnswers:0,yellowAnswers:0,blueAnswers:0, botsJoined:0,joined:0};
-        stopSmash = true;
-        addedFirstBot= false;
-        toDecode ="";
-        xKahootToken ="";
-        currentKahootId = 0;
-        AddedTotal=0;
-        answerDelay=0;
-        leftToAdd = 0;
-        setTimeout(function(){$("#kahoot-stuff").remove()},5000);
-}
+chrome.webRequest.onBeforeSendHeaders.addListener(function(details){
+    for (var i = 0; i < details.requestHeaders.length; i++)
+    {
+        if(details.requestHeaders[i].name === 'Cookie')
+        {
+            details.requestHeaders.splice(i,1);
+        }
+    }
+    return {requestHeaders: details.requestHeaders};
+},{urls: ["*://kahoot.it/*"]},["requestHeaders","blocking"]);
 
 
 function GetChallenge(id)
 {
-	//Change place
-	chrome.cookies.getAll({domain: "kahoot.it"}, function(e) {
-        for (var r = 0; r < e.length; r++)
-            chrome.cookies.remove({
-                url: "https://kahoot.it" + e[r].path,
-                name: e[r].name
-            })
-    });
-    
-   //End
-    
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(event)
     {
