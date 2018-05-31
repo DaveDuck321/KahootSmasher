@@ -1,0 +1,40 @@
+{
+    "name": "Kahoot Smasher Beta",
+    "short_name": "SmashIt2!",
+    "manifest_version": 2,
+    "description":"Smash any Kahoot (Beta)!",
+    "permissions": [
+        "webRequestBlocking",
+        "webRequest",
+          "storage",
+          "cookies",
+          "*://kahoot.it/*"
+        ],
+    "web_accessible_resources": [
+            "smasherBot.js",
+            "backup/index.html"
+        ],
+    "browser_action": {
+        "default_icon": {
+            "16": "icon16.png",
+            "48": "icon48.png",
+            "128": "icon128.png"
+        },
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "page": "background.html"
+    },
+    "icons": { "16": "icon16.png",
+           "48": "icon48.png",
+          "128": "icon128.png" },
+    "content_scripts": [
+        {
+         "matches": ["*://kahoot.it/*","*://kahoot-smash.tk/*"],
+	 "js": ["jquery.js","script.js"],
+         "all_frames":true,
+         "run_at":"document_idle"
+        }
+    ],
+    "version":"0.8"
+}
