@@ -3,7 +3,7 @@ var xKahootToken ="";
 
 var currentKahootId = 0;
 var leftToAdd = 0;
-var AddedTotal =0;
+var AddedTotal = 0;
 
 var namingMethod = 0;
 var basename = "Smasher";
