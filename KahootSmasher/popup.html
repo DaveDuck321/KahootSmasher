@@ -6,9 +6,12 @@
     <body>
         <button id = "startSmash">Smash!</button>
         <p id="progess">Not Smashing</p>
-        <button id = "patreon">Become a Patron!</button>
-        <p id="version">0.10</p>
+        
+        
         <script src="popup.js" ></script>
+
+        <button id = "patreon">Become a Patron</button>
+        <script src="patreon.js"></script>
     </body>
 </html>
 
@@ -25,28 +28,23 @@
     margin: 4px 2px;
     cursor: pointer;
 }
+body {
+    min-width:100px;
+}
+#progess
+{
+    text-align:center;
+}
 #patreon {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f96854;
+font-family: 'Roboto', sans-serif;
+    background-color: #F96854;
     border: none;
-    color: #ffffff;
+    color: white;
     padding: 10px 32px;
     text-decoration: none;
     display: inline-block;
     font-size: 13px;
     margin: 4px 2px;
     cursor: pointer;
-    
-}
-#progess
-{
-    text-align:center;
-}
-#version
-{
-    text-align:center;
-}
-body {
-    min-width:100px;
 }
 </style>

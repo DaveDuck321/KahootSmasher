@@ -1,0 +1,158 @@
+#smash,
+h1 {
+    color: #fff;
+}
+#smash,
+.mainpage {
+    display: block;
+    text-decoration: none;
+    position: absolute
+}
+#smash,
+.mainpage,
+h1,h2,h3,p {
+    text-align: center
+}
+
+#EnterButton,
+#mainpageID,
+#smash,
+.mainpage {
+    position: absolute
+}
+#EnterButton,
+.styledButton {
+    background-color: #333;
+    outline: 0;
+    box-shadow: none;
+    border: 1px solid #2e2e2e
+}
+.clickable {
+    cursor: pointer
+}
+body {
+    animation-name: animateBackground;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    margin: 0
+}
+#smash {
+    width: 100%;
+    margin-top: -60px; /*was 50*/
+    top: 30%;
+    left: auto;
+    font-size: 50px;
+    font-family: sans-serif
+}
+#mainpageID {
+    display: block;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 30%;
+    width: 300px
+}
+.styledButton {
+    color: #fff;
+    width: 50%;
+    margin-left: 25%;
+    height: 30px
+}
+.popup,
+.popupBack {
+    height: 100%;
+    width: 100%
+}
+.header{
+    margin-top:10px;
+    font-size:30px;
+    color:black;
+}
+
+.mainpage {
+    padding: 10px;
+    color: #000;
+    font-size: 20px;
+    font-family: montserrat, "helvetica neue", helvetica, arial, sans-serif;
+    font-weight: 700
+}
+#GamePin {
+    width: 276.5px;
+    margin-top: 10px
+}
+#EnterButton {
+    width: 100%;
+    margin-top: 65px;
+    color: #fff
+}
+
+#androidApp{
+    position:absolute;
+    bottom:0;
+    right:0;
+    left:0;
+    
+    display:none;
+    width:100%;
+    padding:0;
+    margin:0;
+    border:none;
+}
+
+#smallBeta{
+    font-size:20px;
+}
+
+@keyframes animateBackground {
+    0%, 100% {
+        background-color: #45a3e5
+    }
+    14% {
+        background-color: #3cc
+    }
+    28% {
+        background-color: #66bf39
+    }
+    42% {
+        background-color: #ffa602
+    }
+    56% {
+        background-color: #eb670f
+    }
+    71% {
+        background-color: #f35
+    }
+    86% {
+        background-color: #864cbf
+    }
+}
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 100
+}
+.popupBack {
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+    position: absolute;
+    top: 0
+}
+.label {
+    display: inline
+}
+.popupMain {
+    border-top:solid;
+    border-width:5px;
+    background-color: #45a3e5;
+    position: absolute;
+    width: 400px;
+    height: auto;
+    display: block;
+    border-radius: 0px 0px 5px 5px;
+    padding: 0 20px 20px;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: 20px;
+    z-index: 110
+}
